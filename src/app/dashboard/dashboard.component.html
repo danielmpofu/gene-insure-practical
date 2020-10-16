@@ -1,0 +1,26 @@
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-4">
+      <img
+        class="img-thumbnail"
+        width="250"
+        height="250"
+        src="{{imageUrl}}" alt="">
+    </div>
+    <div class="col-8">
+      <h2>{{firstName + ' ' + surname|titlecase}} </h2><br>
+      <h5 class="mb-3"><i class="fa fa-envelope ml-3"></i> {{email}}</h5>
+      <h5 class="mb-3"><i class="fa fa-id-card ml-3"></i> {{id}}</h5>
+      <div class="row mt-2">
+        <button class="btn btn-outline-primary mr-2"><i class="fa fa-user-edit mr-2"></i> Edit Account</button>
+        <button [routerLink]="['new']" class="btn btn-outline-success mr-2" type="button" data-toggle="modal" data-target="#addVehicleModal">
+          <i class="fa fa-plus mr-2"></i> Add Vehicle
+        </button>
+        <button class="btn btn-outline-danger mr-2" (click)="logout()"><i class="fa fa-sign-out-alt mr-2"></i> Logout
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

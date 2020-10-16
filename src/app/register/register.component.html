@@ -1,0 +1,124 @@
+<style>
+  html,  body { height: 100%; }
+  .mycontainer {
+    height: 100%; display: flex;  justify-content: center;
+    align-items: center; margin-bottom: 20px;
+  }
+</style>
+
+<div class="mycontainer">
+  <div>
+    <h1 style="font-size: 125px;font-weight: lighter" class="text-center">Sign Up</h1>
+
+    <div class="card">
+      <article class="card-body">
+        <a routerLink="/login" class="float-right btn btn-outline-primary">Login Instead</a>
+        <h4 class="card-title mb-4 mt-1">Create Account</h4>
+        <form #form="ngForm" (ngSubmit)="doRegister(form)">
+
+          <div class="row">
+            <div class="form-group col-6">
+              <label>First Name</label>
+              <input
+                name="firstname"
+                ngModel
+                required
+                class="form-control"
+                placeholder="first name"
+                type="text">
+            </div>
+            <div class="form-group col-6">
+              <label>Surname</label>
+              <input
+                name="surname"
+                ngModel
+                required
+                class="form-control"
+                placeholder="Surname"
+                type="text">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>National Id</label>
+            <input
+              name="nationalId"
+              ngModel
+              required
+              class="form-control"
+              placeholder="National Id"
+              type="text">
+          </div>
+
+          <div class="form-group">
+            <label>Your email</label>
+            <input
+              name="email"
+              ngModel
+              required
+              class="form-control"
+              placeholder="Email"
+              type="email">
+          </div>
+
+          <div class="form-group">
+            <label>Profile Pic Url</label>
+            <input
+              name="imageUrl"
+              ngModel
+              required
+              class="form-control"
+              placeholder="Image Url"
+              type="text">
+            <p class="text-muted p-2">Just go to Google and search for any image and paste in the image url </p>
+          </div>
+          <div class="form-group">
+
+            <label>Create password</label>
+            <input
+              required
+              name="password"
+              [(ngModel)]="firstPassword"
+              (change)="comparePasswords()"
+              class="form-control"
+              minlength="6"
+              maxlength="10"
+              placeholder="******"
+              type="password">
+          </div>
+
+          <div class="form-group">
+
+            <label>Confirm password</label>
+            <input
+              (change)="comparePasswords()"
+              required
+              name="password"
+              [(ngModel)]="secondPassword"
+              class="form-control"
+              minlength="6"
+              maxlength="10"
+              placeholder="******"
+              type="password">
+          </div>
+
+          <div *ngIf="!isTheSame" class="alert alert-primary" role="alert">
+            {{commentText}}
+          </div>
+
+          <div class="form-group">
+            <button
+              type="submit"
+              [disabled]="!form.valid"
+              class="btn btn-primary btn-block"> Sign Up
+            </button>
+          </div>
+
+
+        </form>
+      </article>
+    </div>
+  </div>
+</div>
+
+

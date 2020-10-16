@@ -1,0 +1,23 @@
+
+<h1>My Vehicles</h1>
+<div class="alert alert-primary alert-dismissible">
+  To access the edit and delete functionality you have to view more details about the vehicle
+
+</div>
+<hr><br>
+<div class="row">
+  <div class="col-4 mt-2 mb-2" *ngFor="let v of vehicleList">
+    <div>
+      <div class="card">
+        <img src="{{v.picUrl}}" alt="{{v.brand}}" class="card-img-top" height="225">
+        <div class="card-body">
+          <h3>{{v.brand + ' ' + v.model|titlecase}}</h3>
+          <h6>Reg Number : {{v.regNo}}</h6>
+          <div class="row">
+            <button [routerLink]="['view',v.id]" class="btn btn-success col-12 mr-2"><i class="fa fa-sticky-note ml-3"></i> Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
